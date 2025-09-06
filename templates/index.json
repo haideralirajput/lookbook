@@ -1,0 +1,87 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "lookbook_fNgcRQ": {
+      "type": "lookbook",
+      "blocks": {
+        "product_xhRXUX": {
+          "type": "product",
+          "settings": {
+            "product": "2-in-1-athelete-shorts"
+          }
+        },
+        "product_fhVJDB": {
+          "type": "product",
+          "settings": {
+            "product": "honey-im-home-adventure"
+          }
+        },
+        "product_WVwkL7": {
+          "type": "product",
+          "settings": {
+            "product": "apple-cinnamon-copy"
+          }
+        },
+        "product_L7qPXj": {
+          "type": "product",
+          "settings": {
+            "product": "apricot-short"
+          }
+        }
+      },
+      "block_order": [
+        "product_xhRXUX",
+        "product_fhVJDB",
+        "product_WVwkL7",
+        "product_L7qPXj"
+      ],
+      "name": "Lookbook",
+      "settings": {
+        "title": "Lookbook",
+        "description": "A curated selection — click to explore.",
+        "hero_image": "shopify://shop_images/1_0d21196a-19b0-4fe3-833e-9bd1ce8e51f3.webp",
+        "columns": 3
+      }
+    },
+    "featured_collection": {
+      "type": "featured-collection",
+      "settings": {
+        "collection": "all",
+        "products_to_show": 8,
+        "title": "Featured products",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "columns_desktop": 4,
+        "enable_desktop_slider": false,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "color_scheme": "scheme-1",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 44,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "lookbook_fNgcRQ",
+    "featured_collection"
+  ]
+}

@@ -1,0 +1,64 @@
+<section id="lookbook-{{ section.id }}" class="lookbook" data-section-id="{{ section.id }}" aria-label="Lookbook">
+  <div class="lookbook-inner">
+    <!-- LEFT editorial hero (hidden on small screens) -->
+    <div class="lookbook-hero" style="background-image: url({{ section.settings.hero_image | image_url}});" aria-hidden="true">
+      <div class="lookbook-hero-overlay">
+        {% if section.settings.title != blank %}
+          <h2 class="lookbook-hero-title">{{ section.settings.title }}</h2>
+        {% endif %}
+        {% if section.settings.description != blank %}
+          <p class="lookbook-hero-desc">{{ section.settings.description }}</p>
+        {% endif %}
+      </div>
+    </div>
+
+    <!-- RIGHT list -->
+    <div class="lookbook-list" aria-live="polite" aria-label="Lookbook products">
+      <div class="lookbook-list-inner" id="lookbook-list-{{ section.id }}"></div>
+    </div>
+  </div>
+
+  <!-- Product JSON blocks (full product JSON if available, otherwise fallback to handle) -->
+  <div class="lookbook-data" aria-hidden="true" style="display:none;">
+    {% for block in section.blocks %}
+      {% if block.type == 'product' and block.settings.product != blank %}
+        {% assign p_handle = block.settings.product %}
+        {% assign product_obj = all_products[p_handle] %}
+        {% if product_obj %}
+          <script type="application/json" class="lb-product-json" data-block-id="{{ block.id }}">
+            {{ product_obj | json }}
+          </script>
+        {% else %}
+          <script type="application/json" class="lb-product-json" data-block-id="{{ block.id }}">
+            { "handle": "{{ p_handle }}" }
+          </script>
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+  </div>
+
+{{ 'lookbook.css' | asset_url | stylesheet_tag }}
+
+    <script src="{{ 'lookbook.js' | asset_url }}" defer="defer"></script>
+
+  {% schema %}
+  {
+    "name": "Lookbook",
+    "settings": [
+      { "id": "title", "type": "text", "label": "Title", "default": "Pre-Fall Lookbook" },
+      { "id": "description", "type": "textarea", "label": "Description", "default": "A curated story — tap items to add to bag." },
+      { "id": "hero_image", "type": "image_picker", "label": "Hero image (hidden on small screens)" }
+    ],
+    "blocks": [
+      {
+        "type": "product",
+        "name": "Product",
+        "settings": [
+          { "id": "product", "type": "product", "label": "Select product" }
+        ]
+      }
+    ],
+    "presets": [ { "name": "Lookbook", "category": "Custom" } ]
+  }
+  {% endschema %}
+</section>
